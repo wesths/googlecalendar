@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/GoogleCalendar/Configurations/ConfigModels/AppSettings.cs
+/GoogleCalendar/key.p12
+/GoogleCalendar/quickstart-1549630559785-71860f61303f.json

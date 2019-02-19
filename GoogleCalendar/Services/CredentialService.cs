@@ -29,7 +29,7 @@ namespace GoogleCalendar.Services
             ServiceAccountCredential credential = new ServiceAccountCredential(
                new ServiceAccountCredential.Initializer(serviceAccountEmail)
                {
-                   Scopes = new[] { CalendarService.Scope.CalendarReadonly }
+                   Scopes = new[] { CalendarService.Scope.CalendarReadonly, CalendarService.Scope.CalendarEvents }
                }.FromCertificate(certificate));
 
             return credential;

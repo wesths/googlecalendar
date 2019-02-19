@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GoogleCalendar.Interfaces;
+using GoogleCalendar.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoogleCalendar.Controllers
@@ -23,7 +24,7 @@ namespace GoogleCalendar.Controllers
         public IActionResult GetDates()
         {
 
-            return Ok(_appointmentService.GetAvailableTimeSlots());            
+            return Ok(_appointmentService.GetAppointments(15));            
 
         }
 
@@ -33,6 +34,24 @@ namespace GoogleCalendar.Controllers
         {
 
             return Ok(_appointmentService.FreeBusyCheck());
+
+        }
+
+        [HttpGet]
+        [Route("GetAvailableTimeSlots")]
+        public IActionResult GetAvailableTimeSlots(int tod, int productMinutes)
+        {
+
+            return Ok(_appointmentService.GetAvailableTimeSlots((TimeOfDay)tod, productMinutes));
+
+        }
+
+        [HttpPost]
+        [Route("AddEvent")]
+        public IActionResult AddEvent([FromBody]AddEventRequest request)
+        {
+
+            return Ok(_appointmentService.AddAppointment(request));
 
         }
     }

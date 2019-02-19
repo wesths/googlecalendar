@@ -13,4 +13,11 @@ namespace GoogleCalendar
         NEXTWEEK,
         INTWOWEEKS
     }
+
+    public enum TimeOfDay
+    {
+        MORNING,
+        AFTERNOON,
+        EVENING
+    }
 }

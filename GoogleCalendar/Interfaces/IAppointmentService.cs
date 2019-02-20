@@ -10,8 +10,10 @@ namespace GoogleCalendar.Interfaces
     {
         List<DateEntity>GetAvailableDateSlots();
         List<string> GetAvailableTimeSlots(TimeOfDay timeOfDay, int productDurationMinutes);
-        List<Appointment> FreeBusyCheck();
-        List<Appointment> GetAppointments(int intervalMinutes);
+        List<Appointment> FreeBusyCheck(DateTime startDate, DateTime endDate);
+       // List<Appointment> GetAppointments(int intervalMinutes);
         string AddAppointment(AddEventRequest request);
+        List<string> GetDatesAvaliable(int productDurationMinutes);
+        List<string> GetThisWeekAvailable(int productDurationMinutes);
     }
 }

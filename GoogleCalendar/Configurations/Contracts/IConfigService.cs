@@ -10,6 +10,7 @@ namespace GoogleCalendar.Configurations.Contracts
         string GetServiceAccountEmailAddress();
         string GetCertificateSecret();
         string GetCalenderId();
+        int GetIntervalMinutes();
         
     }
 }

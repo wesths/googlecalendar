@@ -19,21 +19,14 @@ namespace GoogleCalendar.Controllers
             _appointmentService = appointmentService;
         }
 
-        [HttpGet]
-        [Route("GetDates")]
-        public IActionResult GetDates()
-        {
-
-            return Ok(_appointmentService.GetAppointments(15));            
-
-        }
 
         [HttpGet]
         [Route("BusyCheck")]
         public IActionResult BusyCheck()
         {
-
-            return Ok(_appointmentService.FreeBusyCheck());
+            DateTime startDate = new DateTime(2019, 02, 12, 08, 00, 00);
+            DateTime endDate = new DateTime(2019, 02, 12, 20, 00, 00);
+            return Ok(_appointmentService.FreeBusyCheck(startDate, endDate));
 
         }
 
@@ -52,6 +45,24 @@ namespace GoogleCalendar.Controllers
         {
 
             return Ok(_appointmentService.AddAppointment(request));
+
+        }
+
+        [HttpGet]
+        [Route("GetDatesAvailable")]
+        public IActionResult GetDatesAvailable(int productMinutes)
+        {
+
+            return Ok(_appointmentService.GetDatesAvaliable(productMinutes));
+
+        }
+
+        [HttpGet]
+        [Route("TestDayOfWeek")]
+        public IActionResult TestDayOfWeek(int productMinutes)
+        {
+            
+            return Ok(_appointmentService.GetThisWeekAvailable(productMinutes));
 
         }
     }

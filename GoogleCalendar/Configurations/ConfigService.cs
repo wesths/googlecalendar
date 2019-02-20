@@ -33,5 +33,10 @@ namespace GoogleCalendar.Configurations
         {
             return _appSettings.CalendarId;
         }
+
+        public int GetIntervalMinutes()
+        {
+            return _appSettings.IntervalMinutes;
+        }
     }
 }
